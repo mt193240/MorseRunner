@@ -350,6 +350,18 @@ begin
     if Random < 0.97
       then Result := StringReplace(Result, '9', 'N', [rfReplaceAll]);
     end;
+    if (Ini.RunMode <> rmHst) and (SentExchTypes.Exch2 in
+    [etJaPref,etJaCity]) then
+    begin
+    if Random < 0.4 then begin
+    Result := StringReplace(Result, '0', 'O', [rfReplaceAll]);
+    Result := StringReplace(Result, '00', 'TT', [rfReplaceAll]);
+    end
+    else if Random < 0.8
+      then Result := StringReplace(Result, '0', 'T', [rfReplaceAll]);
+    if Random < 0.1
+      then Result := StringReplace(Result, '9', 'N', [rfReplaceAll]);
+    end;
 end;
 
 
